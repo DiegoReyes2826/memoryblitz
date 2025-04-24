@@ -12,7 +12,7 @@ if (!empty($_POST["btnregistrar"])) {
         } else {
             $contraseña_segura = password_hash($contraseña, PASSWORD_DEFAULT);
 
-            $sql = $conexion->query("INSERT INTO persona(nombre, apellido, email, contraseña) VALUES ('$nombre', '$apellido', '$email', '$contraseña_segura')");
+           $sql = pg_query($conexion, "INSERT INTO persona(nombre, apellido, email, contraseña) VALUES ('$nombre', '$apellido', '$email', '$contraseña_segura')");
 
             if ($sql == true) {
                 echo '<div class="alert alert-success"> Persona registrada correctamente.</div>';
