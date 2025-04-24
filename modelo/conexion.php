@@ -1,13 +1,5 @@
 <?php
-$host     = getenv('DB_HOST');
-$port     = getenv('DB_PORT');
-$dbname   = getenv('DB_NAME');
-$user     = getenv('DB_USER');
-$password = getenv('DB_PASS');
-  // La contraseña de la base de datos
-
-// Crear conexión
-$conexion = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$password");
+$conexion = pg_connect("host=dpg-d054j1vgi27c73calun0-a port=5432 dbname=memoryblitz user=memoryblitz_user password=CRHFInu37nCMKGYa7ZIBXy0w6nNfKCnn sslmode=require");
 
 if (!$conexion) {
     echo "Error de conexión.";
