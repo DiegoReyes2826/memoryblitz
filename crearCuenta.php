@@ -46,8 +46,8 @@
       <button type="submit" name="btnregistrar" value="ok">✅ Registrar</button>
       
     </form>
-    <a href="iniciarSesion.html"><button>👤Iniciar sesion</button></a>
-      <a href="index.html"><button class="boton-secundario"> ❌ Volver</button></a>
+    <a href="iniciarSesion.php"><button>👤Iniciar sesion</button></a>
+      <a href="index.php"><button class="boton-secundario"> ❌ Volver</button></a>
   </div>
 
 </body>
