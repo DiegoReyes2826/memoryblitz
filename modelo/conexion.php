@@ -3,7 +3,6 @@ $conexion = pg_connect("host=dpg-d054j1vgi27c73calun0-a port=5432 dbname=memoryb
 
 if (!$conexion) {
     echo "Error de conexión.";
-} else {
-    echo "¡Conexión exitosa!";
+    exit(); // también es recomendable
 }
 ?>
