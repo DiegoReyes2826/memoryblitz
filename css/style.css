@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .container {
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 20px 5px #00ffffaa;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .titulo {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00ffff;
+    text-shadow: 0 0 8px #00ffff;
+  }
+  
+  .subtitulo {
+    font-size: 12px;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+  
+  .panel-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  button {
+    padding: 15px 25px;
+    font-size: 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.3s ease;
+  }
+  
+  .boton-jugar {
+    background: #00ffcc;
+    color: #000;
+    box-shadow: 0 0 10px #00ffcc;
+  }
+  
+  .boton-jugar:hover {
+    background: #00ddb3;
+    transform: scale(1.05);
+  }
+  
+  .boton-secundario {
+    background: #333;
+    color: #fff;
+    border: 1px solid #666;
+  }
+  
+  .boton-secundario:hover {
+    background: #444;
+    transform: scale(1.03);
+  }
+  
+  footer {
+    margin-top: 40px;
+    font-size: 10px;
+    color: #888;
+  }
+
+  .tablero {
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 120px);
+    grid-template-rows: repeat(2, 120px);
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .color-btn {
+    border-radius: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    box-shadow: 0 0 15px #000;
+    transition: all 0.2s ease;
+  }
+  
+  #rojo    { background: #ff4c4c; }
+  #verde   { background: #13ff7c; }
+  #azul    { background: #4ccaff; }
+  #amarillo{ background: #fff34c; }
+  
+  .color-btn.activo {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px white;
+  }
+  
+  .estado {
+    font-size: 10px;
+    margin-top: 20px;
+    color: #ccc;
+  }
+  
+
+  .mejor-nivel {
+    margin-top: 15px;
+    font-size: 12px;
+    color: #00ffcc;
+    text-shadow: 0 0 5px #00ffcc;
+  }
+
+
+  .panel-ayuda {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-align: left;
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  
+  .panel-ayuda p {
+    margin-bottom: 10px;
+  }
+
+  
+  .campo-nombre {
+    padding: 10px;
+    margin: 15px 0;
+    width: 80%;
+    max-width: 300px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+  }
+  
+
+  
+  
