@@ -1,18 +1,23 @@
-# Usamos una imagen oficial de PHP con Apache
+# Imagen base oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Instala las extensiones necesarias para PostgreSQL y otras utilidades
-RUN docker-php-ext-install pdo pdo_pgsql pgsql
+# Instala dependencias necesarias para PostgreSQL y otras herramientas comunes
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    zip \
+    unzip \
+    git \
+    libzip-dev \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
 
-# Copia todos los archivos del proyecto al directorio raíz de Apache
+# Copiar el contenido del proyecto al directorio de Apache
 COPY . /var/www/html/
 
-# Da permisos adecuados
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
-
-# Habilita el módulo de reescritura de Apache (útil si usas URLs amigables)
+# Habilita mod_rewrite para Apache (opcional, útil si usas rutas amigables)
 RUN a2enmod rewrite
 
-# Exponemos el puerto 80 (el que usa Apache)
-EXPOSE 80
+# Establece el directorio de trabajo
+WORKDIR /var/www/html/
+
+# Asigna permisos adecuados
+RUN chown -R www-data:www-data /var/www/html
