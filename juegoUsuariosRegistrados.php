@@ -6,9 +6,10 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-$usuario = $_SESSION['nombre']; // nombre del usuario desde iniciarSesion.php
-$idUsuario = $_SESSION['id'];   // ID también debe guardarse en la sesión
+$usuario    = $_SESSION['nombre']; // nombre del usuario
+$idUsuario  = $_SESSION['id'];     // ID del usuario
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">

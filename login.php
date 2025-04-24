@@ -7,29 +7,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $password = $_POST["contraseña"];
 
-        $stmt = $conexion->prepare("SELECT * FROM persona WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
+        // Consulta con PostgreSQL
+        $sql = "SELECT * FROM persona WHERE email = $1";
+        $stmt = pg_query_params($conexion, $sql, array($email));
 
-        if ($resultado->num_rows == 1) {
-            $usuario = $resultado->fetch_assoc();
+        if ($stmt) {
+            $usuario = pg_fetch_assoc($stmt);
 
-            if (password_verify($password, $usuario['contraseña'])) {
-                // Guardar sesión
-                $_SESSION['login'] = true;
-                $_SESSION['id'] = $usuario['id'];
-                $_SESSION['nombre'] = $usuario['nombre'];
-                $_SESSION['apellido'] = $usuario['apellido'];
-                $_SESSION['email'] = $usuario['email'];
+            if ($usuario) {
+                if (password_verify($password, $usuario['contraseña'])) {
+                    // Guardar sesión
+                    $_SESSION['login'] = true;
+                    $_SESSION['id'] = $usuario['id'];
+                    $_SESSION['nombre'] = $usuario['nombre'];
+                    $_SESSION['apellido'] = $usuario['apellido'];
+                    $_SESSION['email'] = $usuario['email'];
 
-                header("Location: perfil.php");
-                exit();
+                    header("Location: perfil.php");
+                    exit();
+                } else {
+                    mostrarError("❌ Contraseña incorrecta.");
+                }
             } else {
-                mostrarError("❌ Contraseña incorrecta.");
+                mostrarError("❌ El correo no está registrado.");
             }
         } else {
-            mostrarError("❌ El correo no está registrado.");
+            mostrarError("⚠️ Error en la consulta.");
         }
     } else {
         mostrarError("⚠️ Por favor, ingresa tu correo y contraseña.");

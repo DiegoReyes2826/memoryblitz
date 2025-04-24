@@ -1,13 +1,16 @@
 <?php
 session_start();
 
+// Verificar si el usuario está logueado
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
   header("Location: iniciarSesion.php");
   exit();
 }
-$nombre = $_SESSION['nombre'];
-$apellido = $_SESSION['apellido'];
-$email = $_SESSION['email'];
+
+// Obtener los datos del usuario desde la sesión
+$nombre = htmlspecialchars($_SESSION['nombre']);  // Escapar para prevenir XSS
+$apellido = htmlspecialchars($_SESSION['apellido']);
+$email = htmlspecialchars($_SESSION['email']);
 ?>
 
 <!DOCTYPE html>
