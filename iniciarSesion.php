@@ -26,7 +26,7 @@
 
       <button type="submit" name="btningresar">✅ Iniciar sesión</button>
     </form>
-    <a href="index.html"><button class="boton-secundario"> ❌ Volver</button></a>
+    <a href="index.php"><button class="boton-secundario"> ❌ Volver</button></a>
   </div>
 
 </body>
